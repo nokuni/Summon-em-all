@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Summon__Em_all__App: App {
+    
+    let persistentContainer = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBar().environment(\.managedObjectContext, persistentContainer.container.viewContext)
         }
     }
 }
