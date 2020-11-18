@@ -14,7 +14,6 @@ struct SummonButton: View {
     @State var pokemonSprite = allPokemons[0].image
     @State var pokemonOpacity: Double = 0
     var pokemonImage : Data = .init(count: 1)
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationView {
@@ -51,7 +50,6 @@ struct SummonButton: View {
     }
     // add a random Pokemon to the collection
     func addPokemon() {
-        //if pokeballs[0].pokeball > 0 {
             let newPokedex = Pokedex(context: viewContext)
             
             newPokedex.name = allPokemons.randomElement()?.name ?? "Unamed"
@@ -68,11 +66,8 @@ struct SummonButton: View {
             }
             pokemonName = newPokedex.name
             pokemonSprite = UIImage(data: newPokedex.image!)
-            //pokeballs[0].pokeball -= 1
-            //pokeballs[0].pokeballTimer += 10
             
             saveContext()
-        //}
     }
 }
 
@@ -88,7 +83,6 @@ struct CustomButtonStyle : ButtonStyle {
         configuration.label
             .font(.largeTitle)
             .frame(width: 126, height: 40)
-            //.padding()
             .foregroundColor(Color.blue)
             .background(Color.white)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
