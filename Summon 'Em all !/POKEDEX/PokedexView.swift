@@ -34,7 +34,7 @@ struct PokedexView: View {
                         }
                     }
                 }
-            }
+            }.listStyle(PlainListStyle())
             .navigationTitle("Pokedex (\(pokedex.count) / 151)")
             .navigationBarItems(trailing: Button(action: {
                 resetPokedex()
